@@ -14,6 +14,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// NUEVO: si la petición llega sin body, req.body queda como objeto vacío
+app.use((req, res, next) => {
+  req.body = req.body ?? {};
+  next();
+});
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({ ok: true, message: 'API funcionando' });
 });
@@ -31,6 +37,14 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
+  // NUEVO: un JSON mal escrito por el cliente es un error 400, no del servidor
+  if (err.type === 'entity.parse.failed') {
+    return res.status(400).json({
+      ok: false,
+      message: 'El cuerpo de la petición no es un JSON válido'
+    });
+  }
+
   console.error(err);
   res.status(500).json({ ok: false, message: 'Error interno del servidor' });
 });
