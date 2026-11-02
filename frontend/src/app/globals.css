@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@theme inline {
+  /* Colores sacados del Figma */
+  --color-primario: #7138e8;
+  --color-primario-suave: #f0e9ff;
+  --color-acento: #d8fa76;
+  --color-fondo: #faf9fd;
+  --color-borde: #e9e4f0;
+  --color-texto: #241a36;
+  --color-texto-suave: #776d86;
+  --color-peligro: #b42332;
+  --color-peligro-fondo: rgba(180, 35, 50, 0.06);
+  --color-exito-fondo: #eaf7ef;
+  --color-exito-texto: #26734e;
+  --color-aviso-fondo: #fff2d9;
+  --color-aviso-texto: #965700;
+  /*formas*/
+  --radius-boton: 10px;
+  --radius-tarjeta: 16px;
+  /*tipografía*/
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
