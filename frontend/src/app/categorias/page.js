@@ -54,7 +54,12 @@ export default function CategoriasPage() {
 
   return (
     <div className="mx-auto max-w-5xl p-6">
-      <PageHeader titulo="Categorías" />
+      <PageHeader titulo="Categorías"
+      accion={{
+        href: "/categorias/nuevo",
+        texto: "Nueva categoría"
+      }} 
+      />
 
       {error && <Alert tipo="error">{error}</Alert>}
       {exito && <Alert tipo="exito">{exito}</Alert>}
